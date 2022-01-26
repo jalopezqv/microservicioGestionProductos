@@ -59,7 +59,7 @@ def crear_poducto():
 
 @app.route('/productos/consultar-productos', methods=['GET'])
 def consultar_productos():
-    query     = Producto.query.all()
+    query     = Producto.query.filter(Producto.estado==1)
     productos = productos_schema.dump(query)
     resultado = jsonify(productos)
 
